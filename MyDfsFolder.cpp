@@ -1,32 +1,12 @@
-#ifndef CN_BELIEVEUS_SERVER_FOLDER_H
-#define CN_BELIEVEUS_SERVER_FOLDER_H
-
-#endif
-#include <iostream>
-#include <QString>
-#include <QDir>
-namespace  cn_believeus_server {
-class MyDfsFolder{
-public:
-    MyDfsFolder(QString);
-
-private:
-    static char c[];
-
-public:
-    void init(QString);
-private:
-    void initFolder(QString,bool);
-};
-
-MyDfsFolder::MyDfsFolder(QString basepath){
-    this->init(basepath);
-}
+#include "MyDfsFolder.h"
 //定义静态变量
 char MyDfsFolder::c[]={'0','1','2','3','4',
                        '5','6','7','8','9',
                        'A','B','C','D','E','F'};
 
+MyDfsFolder::MyDfsFolder(QString basepath){
+    this->init(basepath);
+}
 
 void MyDfsFolder::init(QString basePath){
     QDir dir(basePath);
@@ -63,5 +43,4 @@ void MyDfsFolder::initFolder(QString path,bool isCreateSub){
 
         }
     }
-}
 }
