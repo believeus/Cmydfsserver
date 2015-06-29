@@ -29,14 +29,13 @@ void MyDfsFolder::initFolder(QString path,bool isCreateSub){
 
     for (int i = 0; i < sizeof(MyDfsFolder::c);i++) {
         for(int j=0;j<sizeof(MyDfsFolder::c);j++){
-            QDir dir(path+MyDfsFolder::c[i]+MyDfsFolder::c[j]);
+            QDir dir(path+"/"+MyDfsFolder::c[i]+MyDfsFolder::c[j]);
             if(!dir.exists()){
                 std::cout<<dir.absolutePath().toStdString()<<std::endl;
-                bool success=dir.mkdir(path+c[i]+MyDfsFolder::c[j]);
-                std::cout<<"create dir:"<<path.toStdString()<<" success"<<std::endl;
+                bool success=dir.mkdir(path+"/"+c[i]+MyDfsFolder::c[j]);
                 if(success&&isCreateSub){
                     //递归方法,方法又是新方法了,变量都是新的
-                    this->initFolder(path+c[i]+c[j]+"/",false);
+                    this->initFolder(path+"/"+c[i]+c[j]+"/",false);
                 }
 
             }
@@ -44,3 +43,4 @@ void MyDfsFolder::initFolder(QString path,bool isCreateSub){
         }
     }
 }
+
