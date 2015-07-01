@@ -15,12 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     mydfsfolder.cpp \
-    mydfsserver.cpp \
-    mydftask.cpp
+    EngineMydfsserver.cpp \
+    EngineTask.cpp
 
 HEADERS  += mainwindow.h \
     mydfsfolder.h \
-    mydfsserver.h \
-    mydfstask.h
+    EngineMydfsserver.h \
+    EngineTask.h
 
 FORMS    += mainwindow.ui

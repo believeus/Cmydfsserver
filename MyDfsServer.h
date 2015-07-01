@@ -6,7 +6,6 @@
 #include <QByteArray>
 #include <QObject>
 #include <QThreadPool>
-#include "mydfstask.h"
 class MyDFSServer : public QObject
 {
     Q_OBJECT
@@ -19,7 +18,6 @@ private:
     QTcpServer *tcpserver;
     QTcpSocket *socket;//读写套接字
     QThreadPool * threadPool;
-    MydfsTask * task;
 public:
      void start();
 private slots:

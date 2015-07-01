@@ -7,9 +7,10 @@ public:
 
 private:
     static char c[];
+    QString basepath;
 
 public:
-    void init(QString);
+    void init();
 private:
     void initFolder(QString,bool);
 };

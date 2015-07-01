@@ -1,24 +1,24 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include <QDebug>
-#include <QRunnable>
-#include <QThreadPool>
-#include <mydfsserver.h>
-
+#include <QtNetwork/QTcpSocket>
+#include <EngineMydfsserver.h>
+#include <QThread>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QString basepath="C:/data/store";
+    QString basepath="C:/data/mydfs/store/";
     quint16 port=9999;
     int worker=4;
     //启动服务器端程序
-    MyDFSServer mydfserver(basepath,port,worker);
-    mydfserver.start();
+    EngineMydfsserver engineServer(basepath,port,worker);
+    engineServer.start();
+
 
     QTcpSocket  tcpsocket;
     tcpsocket.abort();
     tcpsocket.connectToHost("127.0.0.1", 9999);
+    QThread::sleep(1);
     tcpsocket.waitForConnected();
     tcpsocket.write("Hello World!");
     tcpsocket.waitForBytesWritten();
