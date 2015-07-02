@@ -11,16 +11,17 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = MyDfsServer
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         mainwindow.cpp \
-    mydfsfolder.cpp \
     EngineMydfsserver.cpp \
-    EngineTask.cpp
+    EngineTask.cpp \
+    TaskCore.cpp \
+    MyDfsFolder.cpp
 
 HEADERS  += mainwindow.h \
-    mydfsfolder.h \
     EngineMydfsserver.h \
-    EngineTask.h
+    EngineTask.h \
+    TaskCore.h \
+    MyDfsFolder.h
 
 FORMS    += mainwindow.ui

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "EngineMydfsserver.h"
 #include "EngineTask.h"
-#include "mydfsfolder.h"
+#include "MyDfsFolder.h"
 EngineMydfsserver::EngineMydfsserver(QString basepath,quint16 port,int worker){
     std::cout<<"EngineMydfsserver ready start"<<std::endl;
     this->worker=worker;

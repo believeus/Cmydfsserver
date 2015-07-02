@@ -3,22 +3,25 @@
 #include <QRunnable>
 #include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
-#include "EngineTask.h"
+#include "TaskCore.h"
 class EngineTask:public QObject,public QRunnable
 {
      Q_OBJECT
 private:
     QTcpSocket * tcpsocket;
     QTcpServer * tcpserver;
-    bool         isRun;
+    TaskCore    *  taskCore;
+    bool isRun;
     //构造方法
 public:
     EngineTask(QTcpServer * tcpserver,qintptr socketDescriptor);
+    ~EngineTask();
 public:
-    void run();
+   void run();
 public slots:
    void processConnection();
    void processData();
+   void close();
 };
 
 #endif // ENGINETASK_H
